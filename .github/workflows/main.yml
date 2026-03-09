@@ -11,19 +11,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Optional: Build step (e.g., for React/Vue)
-      # - name: Install Node.js
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: '18'
-      # - run: npm install
-      # - run: npm run build
-
       - name: Copy files via SCP
         uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_SECRET }}
-          source: ".,!.git,!.github"
+          source: "./*,!.git,!.github"
           target: "/home/${{ secrets.SSH_USER }}/public_html"
