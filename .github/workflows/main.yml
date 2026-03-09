@@ -2,7 +2,7 @@ name: Deploy to StableHost
 on:
   push:
     branches:
-      - main # Or your default branch
+      - master # Or your default branch
 
 jobs:
   deploy:
