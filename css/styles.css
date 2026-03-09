@@ -60,10 +60,54 @@
     transition: background 0.3s ease, padding 0.3s ease;
   }
 
-  nav.scrolled {
-    background: rgba(10, 10, 11, 0.9);
+  nav.scrolled,
+  nav.nav-open {
+    background: rgba(10, 10, 11, 0.95);
     backdrop-filter: blur(12px);
+  }
+
+  nav.scrolled {
     padding: 16px 0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text);
+    transition: transform 0.2s ease;
+  }
+
+  .hamburger:hover {
+    color: var(--accent);
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 
   nav .container {
@@ -631,7 +675,80 @@
       padding: 32px 24px;
     }
 
+    nav {
+      background: rgba(10, 10, 11, 0.95);
+      backdrop-filter: blur(12px);
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
     .nav-links {
-      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      padding: 24px;
+      background: rgba(10, 10, 11, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .nav-open .nav-links {
+      max-height: 320px;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-links li {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links li:last-child {
+      border-bottom: none;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 16px 0;
+      font-size: 1rem;
+    }
+
+    .form-row {
+      gap: 0;
+    }
+  }
+
+  @media (min-width: 601px) {
+    .hamburger {
+      display: none !important;
+    }
+
+    .nav-links {
+      position: static;
+      max-height: none;
+      opacity: 1;
+      visibility: visible;
+      flex-direction: row;
+      padding: 0;
+      background: none;
+      border: none;
+    }
+
+    .nav-links li {
+      border-bottom: none;
+    }
+
+    .nav-links a {
+      padding: 0;
+      font-size: 0.9rem;
     }
   }

@@ -1,8 +1,29 @@
     // Nav scroll effect
     const nav = document.getElementById('nav');
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
     window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 50);
+      if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
     });
+
+    // Hamburger menu toggle (mobile)
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('nav-open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      // Close menu when clicking a nav link (mobile)
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('nav-open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    }
 
     // Intersection Observer for subtle fade-in on scroll
     const cards = document.querySelectorAll('.project-card');
@@ -41,7 +62,7 @@
     }
 
     const scrollIndicator = document.querySelector('.scroll-indicator');
-    scrollIndicator.addEventListener('click', () => {
+    scrollIndicator?.addEventListener('click', () => {
       window.scrollTo({
         top: document.getElementById('offerings').offsetTop,
         behavior: 'smooth'

@@ -1,4 +1,4 @@
-name: Deploy to andrewyoung.space
+name: Deploy to StableHost
 on:
   push:
     branches:
