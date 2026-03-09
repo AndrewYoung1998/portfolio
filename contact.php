@@ -4,7 +4,7 @@
  * Configure $recipient below
  */
 
-$recipient = 'andrew_young17@icloud.com';
+$recipient = 'andrew@andrewyoung.space';
 
 // Only process POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
