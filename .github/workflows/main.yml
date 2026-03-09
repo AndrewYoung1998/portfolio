@@ -25,7 +25,5 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_SECRET }}
-          passphrase: ${{ secrets.SSH_PASSPHRASE }}
           source: ".,!.git,!.github"
           target: "/home/${{ secrets.SSH_USER }}/public_html"
-          port: 2083
