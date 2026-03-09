@@ -25,6 +25,5 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          source: "dist/" # Change to your build directory (e.g., ., build/, public/)
+          source: ".,!.git,!.github"
           target: "/home/${{ secrets.SSH_USER }}/public_html"
-          strip_components: 1 # Optional: removes 'dist' folder, copies content directly
