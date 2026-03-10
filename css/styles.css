@@ -518,6 +518,62 @@
     height: 16px;
   }
 
+  /* Personal Projects Section */
+  .personal-projects {
+    padding: 120px 0 160px;
+    border-top: 1px solid var(--border);
+  }
+
+  .projects-list {
+    display: grid;
+    gap: 24px;
+  }
+
+  .project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    padding: 40px 48px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .project-item:hover {
+    border-color: rgba(224, 124, 76, 0.3);
+    transform: translateY(-4px);
+  }
+
+  .project-item-content {
+    flex: 1;
+  }
+
+  .project-item h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+
+  .project-item p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .project-item .project-tech {
+    margin-bottom: 0;
+  }
+
+  .project-item .project-link {
+    flex-shrink: 0;
+  }
+
   /* Education Section */
   .education {
     padding: 120px 0 160px;
@@ -770,6 +826,11 @@
     .project-visual {
       aspect-ratio: 16/9;
     }
+
+    .project-item {
+      flex-direction: column;
+      gap: 20px;
+    }
   }
 
   @media (max-width: 600px) {
@@ -798,7 +859,8 @@
 
     .project-card,
     .education-item,
-    .skill-category {
+    .skill-category,
+    .project-item {
       padding: 32px 24px;
     }
 
