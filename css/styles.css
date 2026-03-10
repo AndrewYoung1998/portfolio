@@ -715,14 +715,19 @@
     }
 
     .about-photos {
-      width: 280px;
-      height: 360px;
+      width: 248px;
+      height: 308px;
       margin: 0 auto;
     }
 
     .about-photo {
-      width: 280px;
-      height: 360px;
+      width: 200px;
+      height: 260px;
+    }
+
+    .about-photo-secondary {
+      top: 7rem;
+      left: 10rem;
     }
 
     .offerings-grid {
@@ -752,18 +757,18 @@
 
   @media (max-width: 600px) {
     .about-photos {
-      width: 300px;
-      height: 380px;
+      width: 212px;
+      height: 262px;
     }
 
     .about-photo {
-      width: 260px;
-      height: 340px;
+      width: 168px;
+      height: 218px;
     }
 
     .about-photo-secondary {
-      top: 40px;
-      left: 40px;
+      top: 7rem;
+      left: 8rem;
     }
 
     .form-row {
