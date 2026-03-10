@@ -288,6 +288,17 @@
     margin-bottom: 0;
   }
 
+  .about-content a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .about-content a:hover {
+    color: #d66a3a;
+    text-decoration: underline;
+  }
+
   /* Offerings Section */
   .offerings {
     padding: 120px 0 160px;
