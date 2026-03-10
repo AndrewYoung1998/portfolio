@@ -26,22 +26,56 @@
     }
 
     // Intersection Observer for subtle fade-in on scroll
-    const cards = document.querySelectorAll('.project-card');
-    const observer = new IntersectionObserver((entries) => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const animateOnScroll = (entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
+          entry.target.classList.add('animate-in');
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    };
 
-    cards.forEach((card, i) => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(24px)';
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver(animateOnScroll, observerOptions);
+
+    // Project cards
+    document.querySelectorAll('.project-card').forEach((card, i) => {
       card.style.transition = `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s`;
-      observer.observe(card);
+      if (!prefersReducedMotion) {
+        card.classList.add('animate-on-scroll');
+        observer.observe(card);
+      }
     });
+
+    // Offerings, skills, education, project items
+    const scrollAnimateItems = document.querySelectorAll('.offering-item, .skill-category, .education-item, .project-item');
+    scrollAnimateItems.forEach((el, i) => {
+      if (!prefersReducedMotion) {
+        el.style.transition = `opacity 0.6s ease ${(i % 6) * 0.08}s, transform 0.6s ease ${(i % 6) * 0.08}s`;
+        el.classList.add('animate-on-scroll');
+        observer.observe(el);
+      }
+    });
+
+    // Section headers
+    document.querySelectorAll('.section-header').forEach((header) => {
+      if (!prefersReducedMotion) {
+        header.classList.add('animate-on-scroll');
+        observer.observe(header);
+      }
+    });
+
+    // About section (photos and content animate when section is visible)
+    const aboutPhotos = document.querySelector('.about-photos');
+    const aboutContent = document.querySelector('.about-content');
+    if (aboutPhotos && aboutContent && !prefersReducedMotion) {
+      [aboutPhotos, aboutContent].forEach((el, i) => {
+        el.style.transition = `opacity 0.6s ease ${i * 0.15}s, transform 0.6s ease ${i * 0.15}s`;
+        el.classList.add('animate-on-scroll');
+        observer.observe(el);
+      });
+    }
     // Contact form success/error messages
     const formMessage = document.getElementById('form-message');
     const urlParams = new URLSearchParams(window.location.search);

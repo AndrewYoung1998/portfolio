@@ -225,6 +225,93 @@
     50% { opacity: 1; }
   }
 
+  /* Scroll-triggered animations */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  .animate-on-scroll.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Scroll indicator bounce */
+  .scroll-indicator {
+    animation: floatDown 3s ease-in-out infinite;
+  }
+
+  @keyframes floatDown {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 8px); }
+  }
+
+  /* Tech tag hover */
+  .project-tech span {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .project-tech span:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(224, 124, 76, 0.2);
+  }
+
+  /* Logo hover */
+  .logo {
+    transition: letter-spacing 0.3s ease;
+  }
+
+  .logo:hover {
+    letter-spacing: 0.02em;
+  }
+
+  /* Nav link underline on hover */
+  .nav-links a {
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  /* Form input focus glow */
+  .form-group input:focus,
+  .form-group textarea:focus {
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  /* About photo subtle hover */
+  .about-photo {
+    transition: transform 0.4s ease;
+  }
+
+  .about-photo:hover {
+    transform: scale(1.02);
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-indicator {
+      animation: none;
+    }
+
+    .animate-on-scroll {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   /* About Section */
   .about {
     padding: 120px 0 160px;
@@ -516,6 +603,12 @@
   .project-link svg {
     width: 16px;
     height: 16px;
+    transition: transform 0.2s ease;
+  }
+
+  .project-card:hover .project-link svg,
+  .project-item:hover .project-link svg {
+    transform: translate(2px, -2px);
   }
 
   /* Personal Projects Section */
