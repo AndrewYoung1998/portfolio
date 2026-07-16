@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Daddy</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/book.css">
+</head>
+<body>
+  <div class="book-scene" tabindex="0">
+    <div class="book-loading" id="loading">
+      <div class="book-loading-spinner"></div>
+      <p>Opening book…</p>
+    </div>
+
+    <div class="book-ui" id="book-ui" hidden>
+      <header class="book-header">
+        <a href="../" class="book-home" aria-label="Back to site">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+        </a>
+        <span class="book-title">About Daddy</span>
+        <span class="book-page-count" id="page-count"></span>
+      </header>
+
+      <div class="book-stage">
+        <button type="button" class="book-nav book-nav-prev" id="prev-btn" aria-label="Previous page" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+
+        <div class="book" id="book">
+          <div class="book-flipbook-wrap" id="flipbook-wrap">
+            <div class="book-shadow"></div>
+            <div id="flipbook"></div>
+          </div>
+        </div>
+
+        <button type="button" class="book-nav book-nav-next" id="next-btn" aria-label="Next page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+      </div>
+
+      <footer class="book-footer">
+        <p class="book-hint">Drag page corners, click the arrows, or press ← → on your keyboard</p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+  <script src="../js/book.js"></script>
+</body>
+</html>
