@@ -98,7 +98,7 @@
     const scrollIndicator = document.querySelector('.scroll-indicator');
     scrollIndicator?.addEventListener('click', () => {
       window.scrollTo({
-        top: document.getElementById('offerings').offsetTop,
+        top: document.getElementById('about').offsetTop,
         behavior: 'smooth'
       });
     });
